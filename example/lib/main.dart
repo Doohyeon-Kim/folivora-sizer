@@ -36,20 +36,62 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    Sizer.init(logicalWidth: 393, logicalHeight: 852);
+    Sizer.init(standardLogicalWidth: 393, standardLogicalHeight: 932);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Center(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const SizedBox(
+              height: 24,
+            ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("${Sizer.unitWidth.lp24}"),
-                Text("${Sizer.unitHeight.lp24}"),
+                Text("window width: ${Sizer.unitWidth.window}"),
+                const SizedBox(
+                  width: 24,
+                ),
+                Text("window height: ${Sizer.unitHeight.window}"),
               ],
             ),
+            const SizedBox(
+              height: 24,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("standard width: ${Sizer.unitWidth.standard}"),
+                const SizedBox(
+                  width: 24,
+                ),
+                Text("standard height: ${Sizer.unitHeight.standard}"),
+              ],
+            ),
+            const SizedBox(
+              height: 24,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Text("logical width 24: 24"),
+                SizedBox(
+                  width: 24,
+                ),
+                Text("logical height 24: 24"),
+              ],
+            ),
+            const SizedBox(
+              height: 24,
+            ),
+            Text("unit width 24: ${Sizer.unitWidth.lp24}"),
+            const SizedBox(
+              height: 8,
+            ),
+            Text("unit height 24: ${Sizer.unitHeight.lp24}"),
           ],
         ),
       ),

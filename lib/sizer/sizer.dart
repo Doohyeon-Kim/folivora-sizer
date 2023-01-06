@@ -11,7 +11,7 @@ class Sizer {
 
   static Responsive responsive = Responsive();
 
-  static init({required double logicalWidth, required double logicalHeight}) {
+  static init({double? standardLogicalWidth, double? standardLogicalHeight}) {
     unitPadding.topSafeArea =
         MediaQueryData.fromWindow(WidgetsBinding.instance.window).padding.top;
     unitPadding.bottomSafeArea =
@@ -21,14 +21,20 @@ class Sizer {
     unitPadding.safeAreaPadding =
         unitPadding.topSafeArea + unitPadding.bottomSafeArea;
 
-    unitWidth.max =
+    unitWidth.window =
         MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.width;
 
-    unitHeight.max =
+    unitHeight.window =
         MediaQueryData.fromWindow(WidgetsBinding.instance.window).size.height;
 
-    unitWidth.lp4 = unitWidth.max / (logicalWidth / 4);
-    unitHeight.lp4 = unitHeight.max / (logicalHeight / 4);
+    unitWidth.standard = standardLogicalWidth ?? unitWidth.window;
+    unitHeight.standard = standardLogicalHeight ?? unitHeight.window;
+
+    unitWidth.max = unitWidth.window;
+    unitHeight.max = unitHeight.window;
+
+    unitWidth.lp4 = unitWidth.max / (unitWidth.standard / 4);
+    unitHeight.lp4 = unitHeight.max / (unitHeight.standard / 4);
 
     unitWidth.lp8 = unitWidth.lp4 * 2;
     unitWidth.lp12 = unitWidth.lp4 * 3;
@@ -88,5 +94,4 @@ class Sizer {
   }
 }
 
-class Responsive{
-}
+class Responsive {}

@@ -42,6 +42,8 @@ class UnitWidth{
   late double lp324;
   late double lp328;
   late double max;
+  late double standard;
+  late double window;
 }
 
 class UnitHeight{
@@ -88,6 +90,8 @@ class UnitHeight{
   late double lp324;
   late double lp328;
   late double max;
+  late double standard;
+  late double window;
 }
 
 class UnitPadding{
